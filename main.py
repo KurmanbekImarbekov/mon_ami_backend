@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from database.database import engine, Base
+from routes.ai import router as ai_router
 from models.user import User
 from models.product import Product
 from models.order import Order
@@ -32,7 +33,7 @@ app.include_router(router)
 app.include_router(orders_router)
 app.include_router(order_items_router)
 app.include_router(users_router)
-
+app.include_router(ai_router)
 
 @app.get("/")
 def home():
